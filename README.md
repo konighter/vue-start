@@ -19,3 +19,7 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Tuist
+* https://router.vuejs.org/zh-cn/essentials/navigation.html
+* https://cn.vuejs.org/v2/guide/computed.html
