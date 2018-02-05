@@ -1,6 +1,7 @@
 
 const state = {
-  login: false
+  login: false,
+  user_info : { userName : '未登录用户'}
 }
 
 const getters = {
@@ -8,10 +9,13 @@ const getters = {
 }
 
 const mutations = {
-  login (state, v) {
+  login (state, payLoad) {
+    console.log(payLoad);
     console.log("user login start~~~~~~~")
-    state.login = v
+    state.login = payLoad.login
     console.log("user login end~~~~~~~")
+    state.user_info.userName = payLoad.user.name;
+
   }
 }
 

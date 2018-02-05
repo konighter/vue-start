@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    this is a Counter component~~~~, msg is {{message}}
+    this is a Counter component~~~~, msg is {{extMost}}
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   data () {
     return {
         count : 0
+    }
+  },
+  computed : {
+    extMost : function () {
+      return 'nihao   ' + this.message;
     }
   }
 }

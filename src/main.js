@@ -7,9 +7,26 @@ import router from './router'
 // Vuex
 import Vuex from 'vuex'
 import store from './vuex/store'
+import BootstrapVue from 'bootstrap-vue'
 
 
 Vue.config.productionTip = false
+
+Vue.use(BootstrapVue)
+
+Vue.component('counter-js',{
+  template : `<div><div> countor is {{count}}</div><button @click='increase' value='增加' /></div>`,
+  data () {
+    return {
+      count : 0
+    }
+  },
+  methods : {
+    increase : function () {
+      this.count += 1;
+    }
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({

@@ -3,12 +3,17 @@
     <h1>{{ msg }}</h1>
     <input type="text" v-model="msg">
     <counter :message="msg"></counter>
+
+    <counter-js></counter-js>
+
+
   </div>
 
 </template>
 
 <script>
 import Counter from './Counter'
+// import CounterJs from './CounterJsFormat'
 export default {
   name: 'Bar',
   data () {

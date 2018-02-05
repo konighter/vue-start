@@ -4,30 +4,31 @@
     <h1>{{reversedMsg}}</h1>
     <input v-model="msg" />
     <button type="button" @click="info" >点击</button>
-    <h1>if user login: {{isLogin}}</h1>
+    <h1>if {{user.user_info.userName}} login: {{isLogin}}</h1>
   </div>
 
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters,mapState } from 'vuex'
 export default {
   name: 'Foo',
   data () {
     return {
-     msg: 'Welcome to Your Foo'
+     msg : 'Welcome to Your Foo'
    }
   },
   created () {
     console.log(this.$store.state.user.login)
+    console.log(this.$store.state.user.user_info.userName)
   },
   watch : {
     msg : function (newV, oldV) {
       console.log(`newValue is ${newV}, oldValue is ${oldV}`)
       if (newV.indexOf('?') !== -1) {
-        this.$store.commit('login', true)
+        this.$store.commit('login', {user: {name:'登录用户1',userId: 923424}, login : true})
       } else {
-        this.$store.commit('login', false)
+        this.$store.commit('login', {user: {name:'未登录用户',userId: 923424}, login : false})
       }
     }
   },
@@ -36,7 +37,8 @@ export default {
       console.log('computed: reversedMsg')
       return this.msg.split('').reverse().join('')
     },
-    ...mapGetters(['isLogin'])
+    ...mapGetters(['isLogin']),
+    ...mapState(['user'])
   },
   methods : {
       info : function ( event) {
@@ -49,8 +51,6 @@ export default {
       submit : function () {
         alert('submit')
       }
-
-
 
   }
 }
