@@ -1,14 +1,23 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <div class="">
+    <h1>{{ msg }}</h1>
+    <input type="text" v-model="msg">
+    <counter :message="msg"></counter>
+  </div>
+
 </template>
 
 <script>
+import Counter from './Counter'
 export default {
   name: 'Bar',
   data () {
     return {
       msg: 'Welcome to Your Bar App'
     }
+  },
+  components : {
+    Counter
   }
 }
 </script>
